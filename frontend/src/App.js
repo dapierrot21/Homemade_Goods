@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <main classname="py-3">
+      <main className="py-3">
         <Container>
           <Route path='/' component={HomePage} exact />
           <Route path='/product/:id' component={ProductPage} />
