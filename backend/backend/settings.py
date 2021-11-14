@@ -123,6 +123,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/images/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
+# User uploaded content.
+MEDIA_ROOT = 'static/images'
+
+
 # Cors
 CORS_ALLOW_ALL_ORIGINS = True
 
