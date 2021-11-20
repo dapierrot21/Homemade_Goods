@@ -1,0 +1,28 @@
+import { CART_ADD_ITEM } from '../constants/cartConstants'
+
+
+
+export const cartReducer = (state={ cartItmes: [] }, action) => {
+    switch(action.type) {
+        case CART_ADD_ITEM:
+            const item = action.payload
+            const existItem = state.cartItmes.find(x => x.product === item.product)
+
+            if (existItem) {
+                return {
+                    ...state,
+                    cartItmes: state.cartItmes.map(x => (
+                        x.product === existItem.product ? item : x
+                    ))
+                }
+            } else {
+                return {
+                    ...state,
+                    cartItmes:[...state.cartItmes, item]
+                }
+            }
+
+        default:
+            return state
+    }
+}
