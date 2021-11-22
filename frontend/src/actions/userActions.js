@@ -3,7 +3,6 @@ import { USER_LOGIN_REQUEST,
     USER_LOGIN_FAIL,
     USER_LOGOUT,
  } from '../constants/userConstants'
- import axois from 'axois'
 import axios from 'axios'
 
 
@@ -21,7 +20,7 @@ import axios from 'axios'
 
          const { data } = await axios.post(
              '/api/users/login/',
-             {'username':email, 'password':password},
+             {'username': email, 'password': password},
              config
              )
 
@@ -35,8 +34,8 @@ import axios from 'axios'
      } catch (error) {
         dispatch({
             type: USER_LOGIN_FAIL,
-            payload: error.response && error.response.data.detail
-            ? error.response.data.detail
+            payload: error.response && error.response.data.error
+            ? error.response.data.error
             : error.message,
         })
      }
