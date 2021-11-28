@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import UserProfilePage from './pages/UserProfilePage'
 import ShippingPage from './pages/ShippingPage'
+import PaymentPage from './pages/PaymentPage'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/register' component={RegisterPage} />
           <Route path='/profile' component={UserProfilePage} />
           <Route path='/shipping' component={ShippingPage} />
+          <Route path='/payment' component={PaymentPage} />
         </Container>
       </main>
       <Footer />
