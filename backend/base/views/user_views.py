@@ -45,7 +45,7 @@ def getUsers(req):
 @permission_classes([IsAuthenticated])
 def updateUserProfile(req):
     user = req.user
-    serializer = UserSerializer(user, many=False)
+    serializer = UserSerializerWithToken(user, many=False)
 
     data = req.data
     user.first_name = data['name']
