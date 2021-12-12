@@ -85,3 +85,11 @@ def registerUser(req):
     except:
         message = {'error': 'User with this email already exists!'}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def deleteUser(req, pk):
+    userForDeletion = User.objects.get(id=pk)
+    userForDeletion.delete()
+    return Response('User was removed.')
