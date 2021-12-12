@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import FormContainer from '../components/FormContainer'
-import { getUserDetails } from '../actions/userActions'
+import { getUserDetails, updateUser } from '../actions/userActions'
+import { USER_UPDATE_FAIL, USER_UPDATE_RESET } from '../constants/userConstants'
 
 function UserEditPage({ match, history }) {
     const userId = match.params.id
@@ -20,18 +21,28 @@ function UserEditPage({ match, history }) {
     const userDetails = useSelector(state => state.userDetails)
     const { loading, user, error } = userDetails
 
+    const userUpdate = useSelector(state => state.userUpdate)
+    const { loading:loadingUpdate, error:errorUpdate, success:successUpdate } = userUpdate
+
     useEffect(() => {
-        if(!user.name || user._id !== Number(userId)) {
-            dispatch(getUserDetails(userId))
+        if(successUpdate) {
+            dispatch({type: USER_UPDATE_RESET})
+            history.push('/admin/userlist')
         } else {
-            setName(user.name)
-            setEmail(user.email)
-            setAdmin(user.isAdmin)
+
+            if(!user.name || user._id !== Number(userId)) {
+                dispatch(getUserDetails(userId))
+            } else {
+                setName(user.name)
+                setEmail(user.email)
+                setAdmin(user.isAdmin)
+            }
         }
-    }, [user, userId])
+    }, [user, userId, successUpdate, history])
 
     const submitHandler = (e) => {
         e.preventDefault()
+        dispatch(updateUser({_id: user._id, name, email, isAdmin}))
 
     }
 
@@ -44,6 +55,8 @@ function UserEditPage({ match, history }) {
 
         <FormContainer>
             <h1>Edit User</h1>
+            {loadingUpdate && <Loader />}
+            {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
             {loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> : (
                 <Form onSubmit={submitHandler}>
                     <Form.Group controlId='name'>
