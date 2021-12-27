@@ -171,7 +171,7 @@ STATICFILES_DIRS = [
 ]
 
 # User uploaded content.
-MEDIA_ROOT = 'static/images'
+MEDIA_ROOT = BASE_DIR / 'static/images'
 
 
 # Cors

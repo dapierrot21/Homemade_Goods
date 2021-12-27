@@ -71,3 +71,15 @@ def deleteProduct(req, pk):
     product = Product.objects.get(_id=pk)
     product.delete()
     return Response('Product Removed')
+
+
+@api_view(['POST'])
+def uploadImage(req):
+    data = req.data
+
+    product_id = data['product_id']
+    product = Product.objects.get(_id=product_id)
+
+    product.image = req.FILES.get('image')
+    product.save()
+    return Response('Image Uploaded.')
