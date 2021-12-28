@@ -6,15 +6,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row } from 'react-bootstrap'
 import { listProducts } from '../actions/productActions'
 
-function HomePage() {
+function HomePage({history}) {
     const dispatch = useDispatch()
+
     const productList = useSelector(state => state.productList)
     const { error, loading, products } = productList
 
-    useEffect(() => {
-        dispatch(listProducts())
+    let keyword = history.location.search
 
-    }, [dispatch])
+    useEffect(() => {
+        dispatch(listProducts(keyword))
+
+    }, [dispatch, keyword])
 
     return (
         <div>
