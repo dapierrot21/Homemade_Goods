@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown, NavItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { logout } from "../actions/userActions";
 import OffCanvasSearchBox from "./OffCanvasSearchBox";
@@ -18,21 +18,20 @@ function Header() {
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
-          {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            {["start"].map((placement, idx) => (
-              <OffCanvasProductMenu key={idx} placement={placement} />
-            ))}
-          </Navbar.Collapse> */}
+          <Nav>
+            <NavItem>
+              {["start"].map((placement, idx) => (
+                <OffCanvasProductMenu key={idx} placement={placement} />
+              ))}
+            </NavItem>
+          </Nav>
           <LinkContainer to="/">
             <Navbar.Brand>Touched By Heaven</Navbar.Brand>
           </LinkContainer>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              {["end"].map((placement, idx) => (
-                <OffCanvasSearchBox key={idx} placement={placement} />
-              ))}
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
                   <LinkContainer to="/profile">
@@ -54,6 +53,13 @@ function Header() {
                   <i className="fas fa-shopping-cart"></i>
                 </Nav.Link>
               </LinkContainer>
+              <Nav>
+                <NavItem>
+                  {["end"].map((placement, idx) => (
+                    <OffCanvasSearchBox key={idx} placement={placement} />
+                  ))}
+                </NavItem>
+              </Nav>
 
               {userInfo && userInfo.isAdmin && (
                 <NavDropdown title="Admin" id="adminmenu">
