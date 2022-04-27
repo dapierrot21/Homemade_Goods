@@ -53,21 +53,35 @@ function Header() {
                   id="offcanvasNavbarDropdown"
                   className="navbar-brand"
                 >
-                  <NavDropdown.Item href="#action3" className="navbar-brand">
-                    Luxe Candles
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#" className="navbar-brand">
-                    Soaps
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#" className="navbar-brand">
-                    Whipped Body Butters
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#" className="navbar-brand">
-                    Lip Balms
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#" className="navbar-brand">
-                    Whipped Sugar Scurbs
-                  </NavDropdown.Item>
+                  <LinkContainer to="/candles">
+                    <NavDropdown.Item className="navbar-brand">
+                      Luxe Candles
+                    </NavDropdown.Item>
+                  </LinkContainer>
+
+                  <LinkContainer to="/soaps">
+                    <NavDropdown.Item className="navbar-brand">
+                      Soaps
+                    </NavDropdown.Item>
+                  </LinkContainer>
+
+                  <LinkContainer to="/body-butter">
+                    <NavDropdown.Item className="navbar-brand">
+                      Whipped Body Butters
+                    </NavDropdown.Item>
+                  </LinkContainer>
+
+                  <LinkContainer to="/lip-balm">
+                    <NavDropdown.Item className="navbar-brand">
+                      Lip Balms
+                    </NavDropdown.Item>
+                  </LinkContainer>
+
+                  <LinkContainer to="/scrubs">
+                    <NavDropdown.Item className="navbar-brand">
+                      Whipped Sugar Scrubs
+                    </NavDropdown.Item>
+                  </LinkContainer>
                 </NavDropdown>
               </Nav>
               <Nav className="justify-content-end flex-grow-1 pe-3">
