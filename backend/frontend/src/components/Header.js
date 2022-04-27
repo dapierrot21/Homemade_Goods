@@ -21,10 +21,12 @@ function Header() {
 
   return (
     <header>
-      <Navbar bg="dark" expand={false}>
+      <Navbar bg="dark" variant="dark" expand={false}>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>Touched By Heaven</Navbar.Brand>
+            <Navbar.Brand className="navbar-brand">
+              Touched By Heaven
+            </Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
@@ -34,21 +36,36 @@ function Header() {
             placement="end"
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
+              <Offcanvas.Title
+                id="offcanvasNavbarLabel"
+                className="navbar-brand"
+              >
+                Menu
+              </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link href="/">Home</Nav.Link>
-                <NavDropdown title="Products" id="offcanvasNavbarDropdown">
-                  <NavDropdown.Item href="#action3">
+                <Nav.Link href="/" className="navbar-brand">
+                  Home
+                </Nav.Link>
+                <NavDropdown
+                  title="Products"
+                  id="offcanvasNavbarDropdown"
+                  className="navbar-brand"
+                >
+                  <NavDropdown.Item href="#action3" className="navbar-brand">
                     Luxe Candles
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#">Soaps</NavDropdown.Item>
-                  <NavDropdown.Item href="#">
+                  <NavDropdown.Item href="#" className="navbar-brand">
+                    Soaps
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#" className="navbar-brand">
                     Whipped Body Butters
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#">Lip Balms</NavDropdown.Item>
-                  <NavDropdown.Item href="#">
+                  <NavDropdown.Item href="#" className="navbar-brand">
+                    Lip Balms
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#" className="navbar-brand">
                     Whipped Sugar Scurbs
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -57,21 +74,26 @@ function Header() {
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id="username">
                     <LinkContainer to="/profile">
-                      <NavDropdown.Item>Profile</NavDropdown.Item>
+                      <NavDropdown.Item className="navbar-brand">
+                        Profile
+                      </NavDropdown.Item>
                     </LinkContainer>
-                    <NavDropdown.Item onClick={logoutHandler}>
+                    <NavDropdown.Item
+                      onClick={logoutHandler}
+                      className="navbar-brand"
+                    >
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>
                 ) : (
                   <LinkContainer to="/login">
-                    <Nav.Link>
+                    <Nav.Link className="navbar-brand">
                       <i className="fas fa-user"></i> Login
                     </Nav.Link>
                   </LinkContainer>
                 )}
                 <LinkContainer to="/cart">
-                  <Nav.Link>
+                  <Nav.Link className="navbar-brand">
                     <i className="fas fa-shopping-cart"></i> Cart
                   </Nav.Link>
                 </LinkContainer>
@@ -80,13 +102,19 @@ function Header() {
                   <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
                     <NavDropdown title="Admin" id="adminmenu">
                       <LinkContainer to="/admin/userlist">
-                        <NavDropdown.Item>Users</NavDropdown.Item>
+                        <NavDropdown.Item className="navbar-brand">
+                          Users
+                        </NavDropdown.Item>
                       </LinkContainer>
                       <LinkContainer to="/admin/productlist">
-                        <NavDropdown.Item>Products</NavDropdown.Item>
+                        <NavDropdown.Item className="navbar-brand">
+                          Products
+                        </NavDropdown.Item>
                       </LinkContainer>
                       <LinkContainer to="/admin/orderlist">
-                        <NavDropdown.Item>Orders</NavDropdown.Item>
+                        <NavDropdown.Item className="navbar-brand">
+                          Orders
+                        </NavDropdown.Item>
                       </LinkContainer>
                     </NavDropdown>
                   </NavDropdown>
