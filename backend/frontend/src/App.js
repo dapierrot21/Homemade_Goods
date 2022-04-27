@@ -1,0 +1,60 @@
+import { Container } from "react-bootstrap";
+import { HashRouter as Router, Route } from "react-router-dom";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import HomePage from "./pages/HomePage";
+import ProductPage from "./pages/ProductPage";
+import CartPage from "./pages/CartPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import UserProfilePage from "./pages/UserProfilePage";
+import ShippingPage from "./pages/ShippingPage";
+import PaymentPage from "./pages/PaymentPage";
+import PlaceOrderPage from "./pages/PlaceOrderPage";
+import OrderPage from "./pages/OrderPage";
+import UserListPage from "./pages/UserListPage";
+import UserEditPage from "./pages/UserEditPage";
+import ProductListPage from "./pages/ProductListPage";
+import ProductEditPage from "./pages/ProductEditPage";
+import OrderListPage from "./pages/OrderListPage";
+import CandlePage from "./pages/CandlePage";
+import SoapPage from "./pages/SoapPage";
+import BodyButterPage from "./pages/BodyButterPage";
+import LipBalmPage from "./pages/LipBalmPage";
+import ScrubsPage from "./pages/ScrubsPage";
+
+function App() {
+  return (
+    <Router>
+      <Header />
+      <main className="py-3">
+        <Container>
+          <Route path="/" component={HomePage} exact />
+          <Route path="/candles" component={CandlePage} />
+          <Route path="/soaps" component={SoapPage} />
+          <Route path="/body-butter" component={BodyButterPage} />
+          <Route path="/lip-balm" component={LipBalmPage} />
+          <Route path="/scrubs" component={ScrubsPage} />
+          <Route path="/product/:id" component={ProductPage} />
+          <Route path="/admin/productlist" component={ProductListPage} />
+          <Route path="/admin/product/:id/edit" component={ProductEditPage} />
+          <Route path="/cart/:id?" component={CartPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={RegisterPage} />
+          <Route path="/profile" component={UserProfilePage} />
+          <Route path="/shipping" component={ShippingPage} />
+          <Route path="/payment" component={PaymentPage} />
+          <Route path="/placeorder" component={PlaceOrderPage} />
+          <Route path="/order/:id" component={OrderPage} />
+          <Route path="/admin/orderlist" component={OrderListPage} />
+          <Route path="/admin/userlist" component={UserListPage} />
+          <Route path="/admin/user/:id/edit" component={UserEditPage} />
+        </Container>
+      </main>
+      <Footer />
+    </Router>
+  );
+}
+
+export default App;
