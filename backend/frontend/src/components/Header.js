@@ -4,13 +4,10 @@ import {
   Nav,
   Container,
   NavDropdown,
-  NavItem,
   Offcanvas,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { logout } from "../actions/userActions";
-import OffCanvasSearchBox from "./OffCanvasSearchBox";
-import OffCanvasProductMenu from "./OffCanvasProductMenu";
 import SearchBox from "./SearchBox";
 
 function Header() {
